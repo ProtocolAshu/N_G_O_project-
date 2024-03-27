@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/Donorstyles.css' %}">
+    <title>Donation page</title>
+</head>
+
+<body>
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="heading">
+                <h2>Fill this form, our team will collect your <span>Donation</span> from your
+                    place.</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mt-5">
+                    <form class="contact-form">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <select name="donation" id="donation" onchange="showDonationDetails()">
+                                                    <option value="">Choose Donation Type</option>
+                                                    <option value="food">Food</option>
+                                                    <option value="clothes">Clothes</option>
+                                                    <option value="footware">Footware</option>
+                                                    <option value="books">Books</option>
+                                                    <option value="fund">Fund</option>
+                                                    <option value="gadget">Electrical Gadgets</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12" id="donationDetails" style="display: none;">
+                                            <div class="form-group" id="amountField" style="display: none;">
+                                                <input type="number" class="form-control" name="amount"
+                                                    placeholder="Amount">
+                                            </div>
+                                            <div class="form-group" id="foodItemsField" style="display: none;">
+                                                <input type="text" class="form-control" name="food_items"
+                                                    placeholder="Enter food items you are giving">
+                                            </div>
+                                            <div class="form-group" id="upperwearField" style="display: none;">
+                                                <input type="number" class="form-control" name="upperwear"
+                                                    placeholder="Number of Upperwear">
+                                            </div>
+                                            <div class="form-group" id="bottomwearField" style="display: none;">
+                                                <input type="number" class="form-control" name="bottomwear"
+                                                    placeholder="Number of Bottomwear">
+                                            </div>
+                                            <div class="form-group" id="gadgetField" style="display: none;">
+                                                <input type="text" class="form-control" name="gadget"
+                                                    placeholder="Gadget">
+                                            </div>
+                                            <div class="form-group" id="itemsField" style="display: none;">
+                                                <input type="number" class="form-control" name="items"
+                                                    placeholder="Number of Items">
+                                            </div>
+
+                                            <!-- Radio buttons for frequency -->
+                                            <div class="form-group">
+                                                <label>
+                                                    <input type="block" name="frequency" value="custom"> Custom
+                                                </label>
+                                                <label>
+                                                    <input type="block" name="frequency" value="annual"> Annual
+                                                </label>
+                                                <label>
+                                                    <input type="block" name="frequency" value="semi_annual">
+                                                    Semi-Annual
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Address">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 mt-3">
+                                        <a href="#" class="btn1 mt-5">Submit Details</a>
+                                        <a href="#" onclick="goBack()" class="btn1 mt-5">Back</a> <!-- Back button -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showDonationDetails() {
+            var donationSelect = document.getElementById("donation");
+            var donationDetails = document.getElementById("donationDetails");
+            var amountField = document.getElementById("amountField");
+            var upperwearField = document.getElementById("upperwearField");
+            var bottomwearField = document.getElementById("bottomwearField");
+            var gadgetField = document.getElementById("gadgetField");
+            var itemsField = document.getElementById("itemsField");
+            var foodItemsField = document.getElementById("foodItemsField");
+            donationDetails.style.display = "block";
+
+            amountField.style.display = "none";
+            upperwearField.style.display = "none";
+            bottomwearField.style.display = "none";
+            gadgetField.style.display = "none";
+            itemsField.style.display = "none";
+            foodItemsField.style.display = "none";
+            switch (donationSelect.value) {
+                case "fund":
+                    amountField.style.display = "block";
+                    break;
+                case "clothes":
+                    upperwearField.style.display = "block";
+                    bottomwearField.style.display = "block";
+                    break;
+                case "gadget":
+                    gadgetField.style.display = "block";
+                    break;
+                case "books":
+                    itemsField.style.display = "block";
+                    break;
+                case "footware":
+                    itemsField.style.display = "block";
+                    break;
+                case "food":
+                    foodItemsField.style.display = "block"; // Show food items input field
+                    break;
+                default:
+                    donationDetails.style.display = "none";
+            }
+        }
+
+        function goBack() {
+            window.history.back(); // Go back to the previous page
+        }
+    </script>
+</body>
+
+</html>

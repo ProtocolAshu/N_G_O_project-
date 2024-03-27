@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renewal Application</title>
+    <link rel="stylesheet" href="{% static 'css/renewal.css' %}">
+</head>
+<body>
+    <a href="/As_Student" class="back-button">Back</a>
+    <header>
+        <h1>Renewal Application</h1>
+    </header>
+    <div class="form-container">
+        <form action="/renewal" method="post"> {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="userId">User ID:</label>
+                <input type="text" id="userId" name="userId" required>
+            </div>
+            <!-- <div class="form-group">
+                <label for="previousGrade">Previous Class Grade or Result:</label>
+                <input type="text" id="previousGrade" name="previousGrade" required>
+            </div>
+        -->
+            <div class="form-group">
+                <label for="fileUpload">Upload Previous Class Result:</label>
+                <input type="file" id="fileUpload" name="fileUpload" accept=".pdf,.doc,.docx" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <footer>
+        <p>For any inquiries, please e-mail us at <a href="mailto:abs@gmail.com">makepragati@gmail.com</a></p>
+    </footer>
+</body>
+</html>
