@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working Status</title>
+    <link rel="stylesheet" href="workingstats.css">
+</head>
+
+<body>
+    <h1 class="h3 mb-3 fw-normal">Working Status</h1>
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <table class="table table-bordered border-secondary table-striped-columns table-primary">
+        <thead>
+            <tr>
+                <th scope="col">Estimate money needed</th>
+                <th scope="col">Net Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ money }}</td>
+                <td>{{ totalmoney.Sum }}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

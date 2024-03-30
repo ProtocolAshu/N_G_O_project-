@@ -15,7 +15,7 @@
           </div>
     </header>
     <div class="form-container">
-        <form action="reg_success" method="post">
+        <form action="/reg_success" method="post">{% csrf_token %}
             <div class="form-group">
                 <label for="fullName">Full Name:</label>
                 <input type="text" id="fullName" name="fullName" required>
@@ -33,8 +33,8 @@
                 <input type="number" id="age" name="age" required>
             </div>
             <div class="form-group">
-                <label for="class">Grade:</label>
-                <input type="text" id="class" name="class" required>
+                <label for="Grade">Grade:</label>
+                <input type="text" id="Grade" name="Grade" required>
             </div>
             <div class="form-group">
                 <label for="schoolName">School Name:</label>
