@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="{% static 'css/apply_fresh.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Student Registration</h1>
+        <div class="backbutton">
+            <button  onclick="location.href='As_Student'">Back</button>
+          </div>
+    </header>
+    <div class="form-container">
+        <form action="/reg_success" method="post">{% csrf_token %}
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div class="form-group">
+                <label for="Grade">Grade:</label>
+                <input type="text" id="Grade" name="Grade" required>
+            </div>
+            <div class="form-group">
+                <label for="schoolName">School Name:</label>
+                <input type="text" id="schoolName" name="schoolName" required>
+            </div>
+            <div class="form-group">
+                <label for="money_needed">Money Needed:</label>
+                <input type="text" id="money_needed" name="money_needed" required>
+            </div>
+            <div class="form-group">
+                <label for="books">Books:</label>
+                <input type="checkbox" id="books" name="books" >
+            </div>
+            <div class="form-group">
+                <label for="dress">Dress:</label>
+                <input type="checkbox" id="dress" name="dress" >
+            </div>
+            <div class="form-group">
+                <label for="performance">Latest Performance marks(in%):</label>
+                <input type="number" id="performance" name="performance" required>
+            </div>
+            <div class="form-group">
+                <label for="guardianName"> Father/Mother/Guardian Name:</label>
+                <input type="text" id="guardianName" name="guardianName" required>
+            </div>
+            <div class="form-group">
+                <label for="income"> Family Income:</label>
+                <input type="number" id="income" name="income" required>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>
